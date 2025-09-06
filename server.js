@@ -891,6 +891,9 @@ const uploadAuthorFile = multer({ storage: fileStorage, fileFilter });
 })();
 
 // ===== Новости =====
+app.get('/', (req, res) => {
+  res.send('Backend is running 🚀');
+});
 app.get('/api/news', async (req, res) => {
   try {
     const { rows } = await pool.query('SELECT * FROM news ORDER BY date DESC');
